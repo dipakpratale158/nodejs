@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended:false})) //config option extended:false
 //   next()
 // })
 
-app.use(adminRout)
+app.use('/admin',adminRout)  //add segment as a filter 
   app.use(shopadmin)
 
 
