@@ -1,18 +1,18 @@
-const http = require('http');
 
+const express=require("express")
 
+const app=express()
 
-const routes = require('./routes');
+app.use((req,res,next)=>{
+  console.log("in a middlelewherer!")
+next() //allows the request to continew to the next middlewhereline 
+})   //use allow to add new middlewhere function. 
+//passing function as a argument 
 
+app.use((req,res,next)=>{
+  console.log("in  a next  middlelewherer!")
+  res.send('<h1>hellow from express</h1>')  //insted of setheader, write
 
-
-console.log(routes.someText);
-
-
-
-const server = http.createServer(routes.handler);
-
-
-
-server.listen(3000);
+})  
+app.listen(3000)
 
