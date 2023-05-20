@@ -1,7 +1,17 @@
 const fs=require("fs")
 const path=require("path")
 //create path module construct all operating system
-
+const getproductformfile=(cb)=>{
+    const p=path.join(path.dirname(process.mainModule.filename),
+    'data',
+    'products.json')
+fs.readFile(p,(err,filecontent)=>{
+if(err){
+   cb([])
+}
+ cb(JSON.parse(filecontent))
+})
+}
 
 const products=[]
 
@@ -28,14 +38,6 @@ module.exports=class product{
         })    
     }
      static fetchAll(cb){
-        const p=path.join(path.dirname(process.mainModule.filename),
-        'data',
-        'products.json')
-fs.readFile(p,(err,filecontent)=>{
-    if(err){
-       cb([])
-    }
-     cb(JSON.parse(filecontent))
-})
+      getproductformfile(cb)
     }
 }
