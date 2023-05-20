@@ -23,13 +23,15 @@ exports.getaddproduct=(req, res, next) => {
 
   exports.getproduct=(req, res, next) => {
     // const products = adminData.products;  //already available in file 
-    const products=Product.fetchAll()
+   Product.fetchAll(products=>{
     res.render('shop', {
-      prods: products,
-      pageTitle: 'Shop',
-      path: '/',
-      hasProducts: products.length > 0,
-      activeShop: true,
-      productCSS: true
-    });
+        prods: products,
+        pageTitle: 'Shop',
+        path: '/',
+        hasProducts: products.length > 0,
+        activeShop: true,
+        productCSS: true
+      });
+    })
+    
   }

@@ -27,7 +27,15 @@ module.exports=class product{
         })//convert json and then wrin to file
         })    
     }
-     static fetchAll(){
-return  products
+     static fetchAll(cb){
+        const p=path.join(path.dirname(process.mainModule.filename),
+        'data',
+        'products.json')
+fs.readFile(p,(err,filecontent)=>{
+    if(err){
+       cb([])
+    }
+     cb(JSON.parse(filecontent))
+})
     }
 }
