@@ -1,4 +1,4 @@
-const product=[]
+const products=[]
 
 module.exports=class product{
     constructor(t){
@@ -6,9 +6,9 @@ module.exports=class product{
     }
 
     save(){
-        product.push(this)
+        products.push(this)
     }
      static fetchAll(){
-return  this.product
+return  products
     }
 }

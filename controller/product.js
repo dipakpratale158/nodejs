@@ -1,4 +1,4 @@
-const products = [];//////////////////////////////
+const Product = require("../module/product");
 
 
 exports.getaddproduct=(req, res, next) => {
@@ -15,12 +15,15 @@ exports.getaddproduct=(req, res, next) => {
   }
 
   exports.postaddproduct=(req, res, next) => {
+    const product=new Product(req.body.title )
+    product.save() 
     res.redirect('/');
   }
 
 
   exports.getproduct=(req, res, next) => {
     // const products = adminData.products;  //already available in file 
+    const products=Product.fetchAll()
     res.render('shop', {
       prods: products,
       pageTitle: 'Shop',

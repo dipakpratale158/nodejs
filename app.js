@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 //importing       module.export=router
-const adiminroute = require('./routes/admin');/////////////////////////
+const adiminroute = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
 
